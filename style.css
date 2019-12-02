@@ -1,0 +1,207 @@
+
+.sword_block{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    background-color: white;
+}
+.sword_block input{
+    display: block;
+    width: 100px;
+    height: 82px;
+    position: absolute;
+    top: 121px;
+    left: 96px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+span{
+    transition-duration: 1s;
+}
+.sword1{
+    position: absolute;
+    top: 137px;
+    height: 5px;
+    width: 100px;
+    background-color: black;
+}
+.sword2{
+    position: absolute;
+    top: 161px;
+    height: 5px;
+    width: 100px;
+    background-color: black;
+}
+.sword3{
+    position: absolute;
+    top: 184px;
+    height: 5px;
+    width: 100px;
+    background-color: black;
+}
+.sword1::after{
+    content: "";
+    left: 70px;
+    width: 15px;
+    height: 5px;
+    background-color: #ffffff;
+    position: absolute;
+
+ }
+.sword2:after{
+    content: "";
+    right: 70px;
+    width: 15px;
+    height: 5px;
+    background-color: #ffffff;
+    position: absolute;
+}
+.sword3:after{
+    content: "";
+    left: 70px;
+    width: 15px;
+    height: 5px;
+    background-color: #ffffff;
+    position: absolute;
+}
+input:checked ~ .sword1 {
+    position: absolute;
+    opacity: 0;
+    top: 85px;
+    transform: rotate(-45deg) translate(-2px, -1px);
+    background: #232323;
+}
+
+input:checked ~ .sword2{
+    opacity: 1;
+    transform: rotate(-45deg) translate(-2px, -1px);
+    background: #232323;
+}
+input:checked ~ .sword3{
+    opacity: 1;
+    top: 164px;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+input:checked:hover ~ .sword2 {
+    box-shadow: -5px 0 30px red;
+}
+
+input:checked:hover ~ .sword3 {
+    box-shadow: 5px 0 30px green;
+}
+/*pendulum*/
+.pendulum_cont{
+    display: flex;
+    justify-content: center;
+}
+.pendulum_block{
+    display: block;
+    justify-content: center;
+}
+.pendulum{
+    align-items: flex-end;
+    width: 500px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+}
+
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black;
+}
+.circle_start{
+    background-color: #2F4F6B;
+    animation: circle_start .5s linear infinite alternate;
+}
+.circle_2{
+    background: linear-gradient(to right, #2F4F6B 0%, #414960 100%) ;
+}
+
+.circle_3 {
+    background: linear-gradient(to right, #414960 0%, #68434B 100%) ;
+}
+
+.circle_4 {
+    background: linear-gradient(to right, #68434B 0%, #923D3C 100%) ;
+}
+
+.circle_5 {
+    background: linear-gradient(to right, #923D3C 0%, #B4382D 100%) ;
+}
+
+.circle_6 {
+    background: linear-gradient(to right, #B4382D 0%, #D53624 100%) ;
+}
+.circle_end{
+    background-color: #D53624;
+    animation: circle_end .5s linear infinite alternate;
+}
+
+@keyframes circle_start {
+    0%, 50% {
+        transform: rotate(0) translateX(0);
+    }
+
+    100%{
+        transform: rotate(50deg) translateX(-30px);
+    }
+}
+@keyframes circle_end {
+    0% {
+        transform: rotate(-50deg) translateX(30px);
+    }
+
+    50%, 100% {
+        transform: rotate(0) translateX(0);
+    }
+}
+.pendulum_shadow{
+    align-items: center ;
+    width: 500px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+}
+.shadow{
+    background-color: gray;
+    width: 20px;
+    height: 10px;
+    border-radius: 50%;
+    filter: blur(2px)
+}
+.shadow_start{
+    animation: shadow_start .5s linear infinite alternate;
+}
+.shadow_end{
+    animation: shadow_end .5s linear infinite alternate;
+}
+@keyframes shadow_start{
+    0%, 50%{
+        opacity: 1;
+        transform:  translateX(0);
+    }
+    100%{
+        opacity: 0.5;
+        transform:  translateX(-30px);
+    }
+}
+@keyframes shadow_end {
+    0%{
+        opacity: 0.5;
+        transform:  translateX(30px);
+    }
+    50%,   100%{
+        opacity: 1;
+        transform:  translateX(0);
+        background-color: gray;
+    }
+}
